@@ -1,47 +1,86 @@
 function mostrar() {
     var notas;
     var sexo;
-    var cont = 0;
-    var promedio;
+    var contador;
     var acumulador = 0;
+    var promedio;
     var notaMenor;
-    var notaMayor;
     var sexoMenor;
-    var contadorVaronesMas6;
+    var contVarones=0;
 
+    for (contador = 0; contador < 5; contador++) {
 
-    do {
-        notas = (parseInt(prompt("Ingrese nota del 0 al 10")));
-
+        notas = parseInt(prompt("Ingrese nota del 0 al 10"));
         while (isNaN(notas) || notas < 0 || notas > 10) {
-            notas = prompt("Nota inválida. Ingrese nota entre 0 y 10");
+            notas = parseInt(prompt("ERROR, ingrese nota del 0 al 10"));
 
         }
-        sexo = prompt("Ingrese f o m indicando el sexo");
 
+        sexo = prompt("Ingrese f o m para identificar el sexo");
         while (sexo != "f" && sexo != "m") {
-
-            sexo = prompt("INVÁLIDO. Ingrese nuevamente el sexo.");
+            sexo = prompt("ERROR, ingrese f o m para identificar el sexo");
 
         }
-        cont++;
         acumulador = acumulador + notas;
 
+        if(contador==0)
+        {
+            notaMenor=notas;
+            sexoMenor=sexo;
 
-    } while (cont < 5);
+        }
+        else if(notaMenor>notas)
+        {
+            notaMenor=notas;
+            sexoMenor=sexo;
 
-    promedio = acumulador / cont;
+        }
+        
+        if(sexo=="m" && notas>=6){
+            contVarones++;
+
+        }
+
+    }
+    promedio=acumulador/contador;
+
+    alert("El promedio de las notas totales es " + promedio);
+    alert("La nota mas baja es " + notaMenor  + "y el sexo de esa persona es " + sexoMenor);
+    alert("La cantidad de varones que aprobaron " + contVarones);
+
+//CANTIDAD=CONTADOR
+//TOTAL=ACUMULADOR
+
+
 
 }
-if(notas<notaMenor){
-    notaMenor=notas;
-    sexoMenor=sexo;
-}
-if(sexo=='m' && notas>=6){
-    contadorVaronesMas6++;
 
-}
-promedio=acumulador / 5 ;
 
-alert("Promedio notas: " + promedio + "\nNota baja: " + notaMenor + "\nSexo nota baja: "+ sexoMenor + "\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
